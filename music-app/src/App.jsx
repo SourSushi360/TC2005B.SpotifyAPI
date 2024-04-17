@@ -1,13 +1,13 @@
-import './App.css'
+import './index.css'
+import { Routes, Route } from 'react-router-dom'
+import Register from './components/register/Register'
 
 function App() {
 
   return (
-    <>
-      <div>
-        
-      </div>
-    </>
+    <Routes>
+      <Route path='/' element={<Register />} />
+    </Routes>
   )
 }
 
