@@ -28,6 +28,7 @@ const Register = () => {
         const response = await fetchSpotifyAPI(url,'POST',body,ct,token);
 
         // console.log(response);
+        localStorage.setItem('token',response.access_token);
         navigate('/dashboard');
     }
 
