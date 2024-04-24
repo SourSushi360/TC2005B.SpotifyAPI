@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchSpotifyAPI } from "../../api/spotifyAPI";
+import { authFLow, getDataAuth } from '../../setup';
 
 const Register = () => {
     const [form,setForm] = useState ({
@@ -19,6 +20,11 @@ const Register = () => {
         setForm(newValues);
     }
     const handleLogin = async() => {
+        const codeChallengeProm = await getDataAuth();
+        authFLow(codeChallengeProm);
+    }
+    /*
+    const handleLogin = async() => {
         const client_id = '482765e0a5f84f0fae12f16395586edd';
         const client_secret = 'b6e9eb4a5b3d4da6b47fde5d501e485f';
         const url = 'https://accounts.spotify.com/api/token';
@@ -31,6 +37,7 @@ const Register = () => {
         localStorage.setItem('token',response.access_token);
         navigate('/dashboard');
     }
+    */
 
     return (
         <div className="bg-[url(/src/assets/background-register.jpg)] bg-center bg-cover h-screen flex justify-center items-center font-rubik">
